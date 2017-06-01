@@ -17,9 +17,28 @@ import UIKit
     let DIRECTION_LEFT = -1
     let DIRECTION_RIGHT = -2
 
-    
     var segments = [UIView]()
     var lines = [UIView]()
+    
+    @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var borderWidth: CGFloat = 0
+    @IBInspectable var borderColor: UIColor = .cyan
+    @IBInspectable var circularSegments: Bool = false {
+        didSet {
+            if(segmentWidth != segmentHeight) {
+                circularSegments = false
+            }
+        }
+    }
+    
+    @IBInspectable var selectedIndex: Int = 0 {
+        didSet {
+            if(selectedIndex < 0 || selectedIndex > numberOfSegments-1) {
+                selectedIndex = 0
+            }
+        }
+    }
+    @IBInspectable var selectedColor: UIColor = .black
     
     @IBInspectable var lineWidth: CGFloat  = 100
     @IBInspectable var lineHeight: CGFloat = 3
@@ -42,26 +61,42 @@ import UIKit
         
         for index in 0..<numberOfSegments {
             if(index % 2 == 0) {
-                drawSegment(x: leftLineAnchor)
+                drawSegment(x: leftLineAnchor, direction: DIRECTION_LEFT)
             } else {
-                drawSegment(x: rightLineAnchor)
+                drawSegment(x: rightLineAnchor, direction: DIRECTION_RIGHT)
                 if(index < numberOfSegments - 1) {
                     drawLine(direction: DIRECTION_LEFT)
                     drawLine(direction: DIRECTION_RIGHT)
                 }
             }
         }
-
     }
     
-    func showLines() {
-        for line in lines {
-            bringSubview(toFront:line)
-        }
-    }
+    
+    
     
     func buildOddSegments() {
         
+        drawSegment(x: bounds.midX, direction: START)
+        leftLineAnchor = bounds.midX
+        rightLineAnchor = bounds.midX
+        
+        for index in 0..<numberOfSegments-1 {
+            if(index % 2 == 0) {
+                drawLine(direction: DIRECTION_LEFT)
+                drawSegment(x: leftLineAnchor, direction: DIRECTION_LEFT)
+            } else {
+                drawLine(direction: DIRECTION_RIGHT)
+                drawSegment(x: rightLineAnchor, direction: DIRECTION_RIGHT)
+            }
+        }
+    }
+    
+    func changeSelectedIndex(index: Int) {
+        
+        segments[selectedIndex].backgroundColor = segmentColor
+        selectedIndex = index
+        segments[selectedIndex].backgroundColor = selectedColor
         
     }
     
@@ -73,7 +108,21 @@ import UIKit
         
     }
     
+    func drawProgressBar() {
+        
+        if(numberOfSegments % 2 == 0) {
+            buildEvenSegments()
+        } else {
+            buildOddSegments()
+        }
+        showSegments()
+        changeSelectedIndex(index: selectedIndex)
+    }
     
+    //Creates a new line according to passed direction.
+    //Default case:  Builds line centered at midX, midY and updates left and right anchors.
+    //Left Direction:  Builds line extending left from leftLineAnchor and updates leftLineAnchor with new minX
+    //Right direction: Builds line extending right from rightLineAnchor and updates rughtLineAnchor with new maxX
     func drawLine(direction: Int) {
         
         var x: CGFloat = 0
@@ -99,35 +148,65 @@ import UIKit
                                         height: lineHeight))
         line.backgroundColor = lineColor
         addSubview(line)
-        lines.append(line)
-        
-        
-    }
-    
-    
-    func drawProgressBar() {
-        
-        if(numberOfSegments % 2 == 0) {
-            buildEvenSegments()
+        if(direction == DIRECTION_LEFT) {
+            lines.insert(line, at: 0)
         } else {
-            buildOddSegments()
+            lines.append(line)
         }
     }
     
+    func customizeSegment(segment: UIView) {
+        
+        segment.backgroundColor = segmentColor
+        segment.layer.borderColor = borderColor.cgColor
+        segment.layer.borderWidth = borderWidth
+        if(circularSegments) {
+            segment.layer.cornerRadius = segmentHeight / 2.0
+        } else {
+            segment.layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    
     //Draw a new segment centered at mid Y and the specified X coordinate.
-    func drawSegment(x: CGFloat) {
+    func drawSegment(x: CGFloat, direction: Int) {
         
         let segment = UIView(frame: CGRect(x: x - segmentWidth/2,
                                            y: bounds.midY - segmentHeight/2,
                                            width: segmentWidth,
                                            height: segmentHeight))
+        customizeSegment(segment: segment)
         
-        segment.backgroundColor = segmentColor
         addSubview(segment)
-        segments.append(segment)
-        
+        if(direction == DIRECTION_LEFT) {
+            segments.insert(segment, at: 0)
+        } else {
+            segments.append(segment)
+        }
     }
-
+    
+    func increaseProgress() {
+        changeSelectedIndex(index: selectedIndex + 1)
+    }
+    
+    func decreaseProgress() {
+        changeSelectedIndex(index: selectedIndex - 1)
+    }
+    
+    //Bring all lines to the front
+    func showLines() {
+        for line in lines {
+            bringSubview(toFront:line)
+        }
+    }
+    
+    //Bring all segments to the front
+    func showSegments() {
+        for segment in segments {
+            bringSubview(toFront:segment)
+        }
+    }
+    
 }
 
 

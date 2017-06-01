@@ -10,8 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var progressBar: SegmentedProgressBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text = "Index: \(progressBar.selectedIndex)"
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -20,6 +25,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func increment(_ sender: Any) {
+        progressBar.increaseProgress()
+        label.text = "Index: \(progressBar.selectedIndex)"
+    }
 
+    @IBAction func decrement(_ sender: Any) {
+        progressBar.decreaseProgress()
+        label.text = "Index: \(progressBar.selectedIndex)"
+    }
+    
+    
+    
 }
 
