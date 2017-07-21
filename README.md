@@ -16,13 +16,14 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
   let progressBar = SegmentedProgressBar(frame: CGRect(x: 0,
                                                        y: 0,
                                                    width: self.view.frame.size.width,
-                                                  height: 200))
-                                                  
-  //progressBar.numberOfSegments = 2
-  //progressBar.selectedColor = .blue
-  //...
+                                                  height: 200))                         
+  self.view.addSubview(progressBar)                                                    
  ```
  
  # Usage
-Edit any of the IBInspectable variables via Interface Builder
-![](http://imgur.com/cQB8XXW.gif)
+ #### Storyboard
+  Edit any of the IBInspectable variables via Interface Builder
+
+  ![](http://imgur.com/cQB8XXW.gif)
+
+
