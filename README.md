@@ -6,11 +6,11 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
 
 
 # Initialization
-##Storyboard:
+#### Storyboard
 
   change class of any `UIView` to `SegmentedProgressBar`.
   
-##Code:
+#### Code:
 
   ```let progressBar = SegmentedProgressBar(frame: CGRect(x: 0,
                                                           y: 0,
