@@ -42,7 +42,7 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
     progressBar.selectedColor: UIColor = .blue
     progressBar.selectedBorderColor: UIColor = .red
     
-    progressBar.lineWidth: CGFloat = 50
+    progressBar.lineWidth: CGFloat = 50 //Distance between segments
     progressBar.lineHeight: CGFloat = 3
     progressBar.lineColor: UIColor = .yellow
   ```
