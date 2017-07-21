@@ -33,10 +33,22 @@ import UIKit
             }
         }
     }
+    
+    @IBInspectable var numberOfSegments: Int = 2 {
+        didSet {
+            if(numberOfSegments < 2) {
+                numberOfSegments = 2
+            }
+        }
+    }
+    
     @IBInspectable var selectedIndex: Int = 0 {
         didSet {
-            if(selectedIndex < 0 || selectedIndex > numberOfSegments-1) {
+            if(selectedIndex < 0) {
                 selectedIndex = 0
+            }
+            if (selectedIndex > numberOfSegments - 1) {
+                selectedIndex = numberOfSegments - 1
             }
         }
     }
@@ -50,23 +62,18 @@ import UIKit
     @IBInspectable var segmentWidth: CGFloat = 20
     @IBInspectable var segmentHeight: CGFloat = 20
     @IBInspectable var segmentColor: UIColor = .black
-    @IBInspectable var numberOfSegments: Int = 2 {
-        didSet {
-            if(numberOfSegments < 2) {
-                numberOfSegments = 2
-            }
-        }
-    }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
-        numberOfSegments = 2
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        backgroundColor = .white
+//        //numberOfSegments = 2
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        //fatalError("init(coder:) has not been implemented")
+//    }
     
     func buildEvenSegments() {
         
@@ -74,9 +81,11 @@ import UIKit
         
         for index in 0..<numberOfSegments {
             if(index % 2 == 0) {
-                drawSegment(x: leftLineAnchor, direction: DIRECTION_LEFT)
+                drawSegment(x: leftLineAnchor,
+                            direction: DIRECTION_LEFT)
             } else {
-                drawSegment(x: rightLineAnchor, direction: DIRECTION_RIGHT)
+                drawSegment(x: rightLineAnchor,
+                            direction: DIRECTION_RIGHT)
                 if(index < numberOfSegments - 1) {
                     drawLine(direction: DIRECTION_LEFT)
                     drawLine(direction: DIRECTION_RIGHT)
@@ -94,10 +103,12 @@ import UIKit
         for index in 0..<numberOfSegments-1 {
             if(index % 2 == 0) {
                 drawLine(direction: DIRECTION_LEFT)
-                drawSegment(x: leftLineAnchor, direction: DIRECTION_LEFT)
+                drawSegment(x: leftLineAnchor,
+                            direction: DIRECTION_LEFT)
             } else {
                 drawLine(direction: DIRECTION_RIGHT)
-                drawSegment(x: rightLineAnchor, direction: DIRECTION_RIGHT)
+                drawSegment(x: rightLineAnchor,
+                            direction: DIRECTION_RIGHT)
             }
         }
     }
@@ -218,15 +229,6 @@ import UIKit
         }
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
