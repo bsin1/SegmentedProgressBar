@@ -12,10 +12,18 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var progressBar: SegmentedProgressBar!
+    var progressBar: SegmentedProgressBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        progressBar = SegmentedProgressBar(frame: CGRect(x: 0,
+                                                         y: 0,
+                                                         width: self.view.frame.size.width,
+                                                         height: 200))
+        self.view.addSubview(progressBar)
+        
         label.text = "Index: \(progressBar.selectedIndex)"
         // Do any additional setup after loading the view, typically from a nib.
     }

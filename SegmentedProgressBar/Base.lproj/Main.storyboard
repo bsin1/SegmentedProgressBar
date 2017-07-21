@@ -50,69 +50,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qA-fJ-Op9" customClass="SegmentedProgressBar" customModule="SegmentedProgressBar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="254" width="320" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Lsh-Sf-x8L"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSegments">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="segmentHeight">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="segmentWidth">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.19607843137254902" green="0.30980392156862746" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                        <real key="value" value="51"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentColor">
-                                        <color key="value" red="0.32091655279999998" green="0.81936123699999996" blue="0.22479019519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="1" green="0.059605572920000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circularSegments" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.47450980390000003" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1qA-fJ-Op9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="1lr-nK-b4d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KBD-pt-LpN" secondAttribute="trailing" constant="71" id="3m1-u3-ZEq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qTF-lw-HnS" secondAttribute="bottom" constant="70" id="44I-UQ-cIx"/>
-                            <constraint firstItem="1qA-fJ-Op9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Fm-Tg-7Gg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X0H-PG-qyn" secondAttribute="bottom" constant="170" id="8ln-vx-xCy"/>
                             <constraint firstItem="qTF-lw-HnS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="DHc-AG-geV"/>
-                            <constraint firstItem="1qA-fJ-Op9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hiu-QR-fVa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KBD-pt-LpN" secondAttribute="bottom" constant="70" id="XFs-Ye-FRM"/>
                             <constraint firstItem="X0H-PG-qyn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dSv-De-gVk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="X0H-PG-qyn" id="V5v-Vu-XfY"/>
-                        <outlet property="progressBar" destination="1qA-fJ-Op9" id="kz8-2a-2Yp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

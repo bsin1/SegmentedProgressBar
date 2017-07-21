@@ -9,7 +9,6 @@
 import UIKit
 @IBDesignable class SegmentedProgressBar: UIView {
     
-    
     var leftLineAnchor: CGFloat = 0
     var rightLineAnchor: CGFloat = 0
     
@@ -22,8 +21,7 @@ import UIKit
     
     var delegate: SegmentedProgressBarDelegate?
     
-    var start = true
-
+    var firstLoad = true
     
     @IBInspectable var cornerRadius: CGFloat = 0
     @IBInspectable var borderWidth: CGFloat = 0
@@ -35,7 +33,6 @@ import UIKit
             }
         }
     }
-    
     @IBInspectable var selectedIndex: Int = 0 {
         didSet {
             if(selectedIndex < 0 || selectedIndex > numberOfSegments-1) {
@@ -61,6 +58,17 @@ import UIKit
         }
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
+        numberOfSegments = 2
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func buildEvenSegments() {
         
         drawLine(direction: START)
@@ -77,9 +85,6 @@ import UIKit
             }
         }
     }
-    
-    
-    
     
     func buildOddSegments() {
         
@@ -106,22 +111,20 @@ import UIKit
         selectedIndex = index
         segments[selectedIndex].backgroundColor = selectedColor
         segments[selectedIndex].layer.borderColor = selectedBorderColor.cgColor
-        if delegate != nil  && start == false{
+        if delegate != nil  && firstLoad == false {
             delegate?.progressChanged(index: index)
         }
-        
     }
-    
     
     override func draw(_ rect: CGRect) {
         segments = []
         lines = []
         drawProgressBar()
-        
+        firstLoad = false
+
     }
     
     func drawProgressBar() {
-        
         if(numberOfSegments % 2 == 0) {
             buildEvenSegments()
         } else {
@@ -152,7 +155,6 @@ import UIKit
             leftLineAnchor = x
             rightLineAnchor = bounds.midX + lineWidth/2
         }
-        
 
         let line = UIView(frame: CGRect(x: x,
                                         y: bounds.midY - lineHeight/2,
@@ -168,7 +170,6 @@ import UIKit
     }
     
     func customizeSegment(segment: UIView) {
-        
         segment.backgroundColor = segmentColor
         segment.layer.borderColor = borderColor.cgColor
         segment.layer.borderWidth = borderWidth
@@ -178,7 +179,6 @@ import UIKit
             segment.layer.cornerRadius = cornerRadius
         }
     }
-    
     
     //Draw a new segment centered at mid Y and the specified X coordinate.
     func drawSegment(x: CGFloat, direction: Int) {
@@ -218,7 +218,6 @@ import UIKit
             bringSubview(toFront:segment)
         }
     }
-    
 }
 
 
