@@ -17,5 +17,9 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
                                                        y: 0,
                                                    width: self.view.frame.size.width,
                                                   height: 200))
+                                                  
+  //progressBar.numberOfSegments = 2
+  //progressBar.selectedColor = .blue
+  //...
  ```
 
