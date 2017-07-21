@@ -47,6 +47,6 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
     progressBar.lineColor: UIColor = .yellow
   ```
   
-  Conform to the `SegmentedProgressBarDelegate` 
+  Conform to the `SegmentedProgressBarDelegate` to access the `onProgressChanged(index: Int)` function. 
   
 
