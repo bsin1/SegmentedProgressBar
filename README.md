@@ -22,4 +22,6 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
   //progressBar.selectedColor = .blue
   //...
  ```
+ 
+ # Usage
 
