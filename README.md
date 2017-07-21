@@ -24,4 +24,5 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
  ```
  
  # Usage
-
+Edit any of the IBInspectable variables via Interface Builder
+![](http://imgur.com/cQB8XXW.gif)
