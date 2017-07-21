@@ -25,5 +25,25 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
   Edit any of the IBInspectable variables via Interface Builder
 
   ![](http://imgur.com/cQB8XXW.gif)
-
+  
+ #### Code
+  ```
+    progressBar.numberOfSegments: Int = 2
+    progressBar.segmentWidth: CGFloat = 20
+    progressBar.segmentHeight: CGFloat = 20
+    progressBar.segmentColor: UIColor = .black
+    progressBar.circularSegments: Bool = true //Only works when segmentWidth == segmentHeight
+  
+    progressBar.cornerRadius: CGFloat = 5
+    progressBar.borderWidth: CGFloat = 2
+    progressBar.borderColor: UIColor = .green
+    
+    progressBar.selectedIndex: Int = 0
+    progressBar.selectedColor: UIColor = .blue
+    progressBar.selectedBorderColor: UIColor = .red
+    
+    progressBar.lineWidth: CGFloat = 50
+    progressBar.lineHeight: CGFloat = 3
+    progressBar.lineColor: UIColor = .yellow
+  ```
 
