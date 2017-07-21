@@ -20,6 +20,11 @@ import UIKit
     var segments = [UIView]()
     var lines = [UIView]()
     
+    var delegate: SegmentedProgressBarDelegate?
+    
+    var start = true
+
+    
     @IBInspectable var cornerRadius: CGFloat = 0
     @IBInspectable var borderWidth: CGFloat = 0
     @IBInspectable var borderColor: UIColor = .cyan
@@ -39,7 +44,8 @@ import UIKit
         }
     }
     @IBInspectable var selectedColor: UIColor = .black
-    
+    @IBInspectable var selectedBorderColor: UIColor = .white
+
     @IBInspectable var lineWidth: CGFloat  = 100
     @IBInspectable var lineHeight: CGFloat = 3
     @IBInspectable var lineColor: UIColor = .black
@@ -95,8 +101,14 @@ import UIKit
     func changeSelectedIndex(index: Int) {
         
         segments[selectedIndex].backgroundColor = segmentColor
+        segments[selectedIndex].layer.borderColor = borderColor.cgColor
+
         selectedIndex = index
         segments[selectedIndex].backgroundColor = selectedColor
+        segments[selectedIndex].layer.borderColor = selectedBorderColor.cgColor
+        if delegate != nil  && start == false{
+            delegate?.progressChanged(index: index)
+        }
         
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9C6A7071F2192F50042305D /* SegmentedProgressBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C6A7061F2192F50042305D /* SegmentedProgressBarDelegate.swift */; };
 		F9F0011E1EDD09CA00D2141E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0011D1EDD09CA00D2141E /* AppDelegate.swift */; };
 		F9F001201EDD09CA00D2141E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0011F1EDD09CA00D2141E /* ViewController.swift */; };
 		F9F001231EDD09CA00D2141E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F001211EDD09CA00D2141E /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F9C6A7061F2192F50042305D /* SegmentedProgressBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedProgressBarDelegate.swift; sourceTree = "<group>"; };
 		F9F0011A1EDD09CA00D2141E /* SegmentedProgressBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegmentedProgressBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F0011D1EDD09CA00D2141E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9F0011F1EDD09CA00D2141E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				F9F001261EDD09CA00D2141E /* LaunchScreen.storyboard */,
 				F9F001291EDD09CA00D2141E /* Info.plist */,
 				F9F0012F1EDD0A1700D2141E /* SegmentedProgressBar.swift */,
+				F9C6A7061F2192F50042305D /* SegmentedProgressBarDelegate.swift */,
 			);
 			path = SegmentedProgressBar;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			files = (
 				F9F001201EDD09CA00D2141E /* ViewController.swift in Sources */,
 				F9F0011E1EDD09CA00D2141E /* AppDelegate.swift in Sources */,
+				F9C6A7071F2192F50042305D /* SegmentedProgressBarDelegate.swift in Sources */,
 				F9F001301EDD0A1700D2141E /* SegmentedProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
