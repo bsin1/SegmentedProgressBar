@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SegmentedProgressBarDelegate {
 
     
     @IBOutlet weak var label: UILabel!
@@ -18,29 +18,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let progressBar = SegmentedProgressBar(frame: CGRect(x: 0,
-                                                             y: 0,
-                                                             width: 100, height: 100))
+                                                             y: self.view.frame.midY - 100,
+                                                             width: self.view.frame.size.width,
+                                                             height: 200))
+        progressBar.delegate = self
+        
+        //progressBar.numberOfSegments = 5
+        //progressBar.segmentColor = .green
+        
+        self.view.addSubview(progressBar)
     
         label.text = "Index: \(progressBar.selectedIndex)"
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func progressChanged(index: Int) {
+        label.text = "Index: \(index)"
     }
-
+    
     @IBAction func increment(_ sender: Any) {
         progressBar.increaseProgress()
-        label.text = "Index: \(progressBar.selectedIndex)"
     }
 
     @IBAction func decrement(_ sender: Any) {
         progressBar.decreaseProgress()
-        label.text = "Index: \(progressBar.selectedIndex)"
     }
-    
-    
-    
 }
 

@@ -19,7 +19,7 @@ import UIKit
     var segments = [UIView]()
     var lines = [UIView]()
     
-    var delegate: SegmentedProgressBarDelegate?
+    weak var delegate: SegmentedProgressBarDelegate?
     
     var firstLoad = true
     
@@ -62,18 +62,6 @@ import UIKit
     @IBInspectable var segmentWidth: CGFloat = 20
     @IBInspectable var segmentHeight: CGFloat = 20
     @IBInspectable var segmentColor: UIColor = .black
-    
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        backgroundColor = .white
-//        //numberOfSegments = 2
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        //fatalError("init(coder:) has not been implemented")
-//    }
     
     func buildEvenSegments() {
         
