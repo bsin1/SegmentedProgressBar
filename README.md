@@ -1,6 +1,7 @@
 # SegmentedProgressBar
 A simple progress bar with customizable segments
-Interested in how this was built? [I'm an inline-style link](https://medium.com/@balinsinnott/39c3e96e581d)
+
+[How this was built?](https://medium.com/@balinsinnott/39c3e96e581d)
 
 # Installation
 Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into your project
