@@ -9,7 +9,8 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
 #### Storyboard
 
   change class of any `UIView` to `SegmentedProgressBar`.
-  <bNote: If Interface Builder does not appear to be rendering any changes, you may have to enable ‘Automatically Refresh Views’ in the editor menu./b>
+  
+  Note: If Interface Builder does not appear to be rendering any changes, you may have to enable ‘Automatically Refresh Views’ in the editor menu.
   
 #### Code:
 
