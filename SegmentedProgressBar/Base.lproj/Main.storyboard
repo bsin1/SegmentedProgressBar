@@ -50,6 +50,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-l8-MLK" customClass="SegmentedProgressBar" customModule="SegmentedProgressBar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="209" width="320" height="150"/>
+                                <color key="backgroundColor" red="0.2993990487" green="1" blue="0.037357574669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="wVc-Fm-DO1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedBorderColor">
+                                        <color key="value" red="0.98198527097702026" green="0.21754473906339003" blue="0.17302997381960888" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSegments">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circularSegments" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="segmentHeight">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="segmentWidth">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.47450980390000003" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -57,8 +97,11 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qTF-lw-HnS" secondAttribute="bottom" constant="70" id="44I-UQ-cIx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X0H-PG-qyn" secondAttribute="bottom" constant="170" id="8ln-vx-xCy"/>
                             <constraint firstItem="qTF-lw-HnS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="DHc-AG-geV"/>
+                            <constraint firstItem="ekl-l8-MLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UTU-Q1-BB0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KBD-pt-LpN" secondAttribute="bottom" constant="70" id="XFs-Ye-FRM"/>
                             <constraint firstItem="X0H-PG-qyn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dSv-De-gVk"/>
+                            <constraint firstItem="ekl-l8-MLK" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="oa3-qD-TaJ"/>
+                            <constraint firstItem="ekl-l8-MLK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pXe-VV-xhE"/>
                         </constraints>
                     </view>
                     <connections>
