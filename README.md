@@ -12,7 +12,8 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
   
 #### Code:
 
-  ```let progressBar = SegmentedProgressBar(frame: CGRect(x: 0,
+  ```
+  let progressBar = SegmentedProgressBar(frame: CGRect(x: 0,
                                                           y: 0,
                                                           width: self.view.frame.size.width,
                                                           height: 200))
