@@ -12,7 +12,7 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
 
   change class of any `UIView` to `SegmentedProgressBar`.
   
-  Note: If Interface Builder does not appear to be rendering any changes, you may have to enable ‘Automatically Refresh Views’ in the editor menu.
+  Note:  If Interface Builder does not appear to be rendering any changes, you may have to enable ‘Automatically Refresh Views’ in the editor menu.
   
 #### Code:
 
