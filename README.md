@@ -26,7 +26,7 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
 
   ![](http://imgur.com/cQB8XXW.gif)
   
- #### Code
+ #### Customization
   ```
     progressBar.numberOfSegments: Int = 2
     progressBar.segmentWidth: CGFloat = 20
@@ -46,4 +46,7 @@ Copy `SegmentedProgressBar.swift` and `SegmentedProgressBarDelegate.swift` into 
     progressBar.lineHeight: CGFloat = 3
     progressBar.lineColor: UIColor = .yellow
   ```
+  
+  Conform to the `SegmentedProgressBarDelegate` 
+  
 
