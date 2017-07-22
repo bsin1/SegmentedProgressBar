@@ -9,13 +9,17 @@
 import UIKit
 @IBDesignable class SegmentedProgressBar: UIView {
     
+    enum Direction {
+        case start
+        case left
+        case right
+    }
+    
+    
     var leftLineAnchor: CGFloat = 0
     var rightLineAnchor: CGFloat = 0
     
-    let START = 0
-    let DIRECTION_LEFT = -1
-    let DIRECTION_RIGHT = -2
-
+    
     var segments = [UIView]()
     var lines = [UIView]()
     
@@ -65,18 +69,18 @@ import UIKit
     
     func buildEvenSegments() {
         
-        drawLine(direction: START)
+        drawLine(direction: .start)
         
         for index in 0..<numberOfSegments {
             if(index % 2 == 0) {
                 drawSegment(x: leftLineAnchor,
-                            direction: DIRECTION_LEFT)
+                            direction: .left)
             } else {
                 drawSegment(x: rightLineAnchor,
-                            direction: DIRECTION_RIGHT)
+                            direction: .right)
                 if(index < numberOfSegments - 1) {
-                    drawLine(direction: DIRECTION_LEFT)
-                    drawLine(direction: DIRECTION_RIGHT)
+                    drawLine(direction: .left)
+                    drawLine(direction: .right)
                 }
             }
         }
@@ -84,19 +88,19 @@ import UIKit
     
     func buildOddSegments() {
         
-        drawSegment(x: bounds.midX, direction: START)
+        drawSegment(x: bounds.midX, direction: .start)
         leftLineAnchor = bounds.midX
         rightLineAnchor = bounds.midX
         
         for index in 0..<numberOfSegments-1 {
             if(index % 2 == 0) {
-                drawLine(direction: DIRECTION_LEFT)
+                drawLine(direction: .left)
                 drawSegment(x: leftLineAnchor,
-                            direction: DIRECTION_LEFT)
+                            direction: .left)
             } else {
-                drawLine(direction: DIRECTION_RIGHT)
+                drawLine(direction: .right)
                 drawSegment(x: rightLineAnchor,
-                            direction: DIRECTION_RIGHT)
+                            direction: .right)
             }
         }
     }
@@ -136,15 +140,15 @@ import UIKit
     //Default case:  Builds line centered at midX, midY and updates left and right anchors.
     //Left Direction:  Builds line extending left from leftLineAnchor and updates leftLineAnchor with new minX
     //Right direction: Builds line extending right from rightLineAnchor and updates rughtLineAnchor with new maxX
-    func drawLine(direction: Int) {
+    func drawLine(direction: Direction) {
         
         var x: CGFloat = 0
         switch direction {
-        case DIRECTION_LEFT:
+        case .left:
             x = leftLineAnchor - lineWidth
             leftLineAnchor = x
             break
-        case DIRECTION_RIGHT:
+        case .right:
             x = rightLineAnchor
             rightLineAnchor = x + lineWidth
             break
@@ -160,7 +164,7 @@ import UIKit
                                         height: lineHeight))
         line.backgroundColor = lineColor
         addSubview(line)
-        if(direction == DIRECTION_LEFT) {
+        if(direction == .left) {
             lines.insert(line, at: 0)
         } else {
             lines.append(line)
@@ -179,7 +183,7 @@ import UIKit
     }
     
     //Draw a new segment centered at mid Y and the specified X coordinate.
-    func drawSegment(x: CGFloat, direction: Int) {
+    func drawSegment(x: CGFloat, direction: Direction) {
         
         let segment = UIView(frame: CGRect(x: x - segmentWidth/2,
                                            y: bounds.midY - segmentHeight/2,
@@ -188,7 +192,7 @@ import UIKit
         customizeSegment(segment: segment)
         
         addSubview(segment)
-        if(direction == DIRECTION_LEFT) {
+        if(direction == .left) {
             segments.insert(segment, at: 0)
         } else {
             segments.append(segment)
